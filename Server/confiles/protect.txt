@@ -1,0 +1,3 @@
+protectindex.html;sim;pw;protect
+proxyindex.html;sim;pw;proxy
+

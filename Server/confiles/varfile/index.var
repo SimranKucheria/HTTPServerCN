@@ -1,0 +1,4 @@
+gzip:application/gzip:i:i;index.html.gz
+identity:text/plain:en:iso-8859-5;index.html
+identity:text/xml:en:i;index.html.xml
+gzip:text/xml :en:en-ascii;index.fr.html

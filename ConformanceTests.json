@@ -1,0 +1,7166 @@
+{
+	"info": {
+		"_postman_id": "91fe1e38-9fbd-4d10-980e-ba9b127d1b6c",
+		"name": "ConformanceTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HEAD Queries",
+			"item": [
+				{
+					"name": "HEAD 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bfa0a8ad-83ee-41b6-8201-c04e957cbc5b",
+								"exec": [
+									"//var responseJSON;",
+									"",
+									"//try { ",
+									"//    responseJSON = JSON.parse(responseBody); ",
+									" //   tests['response is valid JSON'] = true;",
+									"//}",
+									"//catch (e) { ",
+									"  //  responseJSON = {}; ",
+									"    //tests['response is valid JSON'] = false;",
+									"//}",
+									"",
+									"//tests['response json contains headers'] = _.has(responseJSON, 'headers');",
+									"//tests['response json contains args'] = _.has(responseJSON, 'args');",
+									"//tests['response json contains url'] = _.has(responseJSON, 'url');",
+									"",
+									"//tests['args key contains argument passed as url parameter'] = ('test' in responseJSON.args);",
+									"//tests['args passed via request url params has value \"123\"'] = (_.get(responseJSON, 'args.test') === \"123\");",
+									"",
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.5"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1234/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "72830dc3-6349-45d3-9f68-bdd9b6666136",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1234/index.html.gz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html.gz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d934dca0-8e11-4445-be3e-3e623592bd6a",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " : c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c8e3b2e-5850-4c92-8072-ffbceb0f9a28",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Basic nB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "807afd08-c521-4056-ad93-d01feee335c4",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f42d268-569a-4748-924e-49e967b767a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f05cb353-383a-471f-875b-d84d8ac7454f",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1234/indexs.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"indexs.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "872b2b5d-3b13-4b44-8a5a-5832e8854f48",
+								"exec": [
+									"pm.test(\"Status code is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " deflate, *;q=0",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f376fbc9-3557-40b7-8e4f-cda539cab605",
+								"exec": [
+									"pm.test(\"Status code is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "image/webp,*/*;q=0.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " deflate, *;q=1",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aca277bb-6224-4152-a6e8-84431c978ec2",
+								"exec": [
+									"pm.test(\"Status code is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "image/webp,*/*;q=0.2",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " deflate, *;q=1",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " *;q=0.0",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 11",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee4710d7-f486-4fde-a855-b51cdb4fec03",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/plain,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en;q=0.5 , fr;q=1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 12",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6388db8e-fe33-452c-98e8-784dc93ed503",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 13",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29143f86-4583-49ba-8dee-235c79e49b95",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "*",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 14",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e81623bd-3a97-4633-b1af-fe500f1acb0e",
+								"exec": [
+									"pm.test(\"Status code is 200 can also give 406 if queries are run multiple time\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//Gives 406 because a query in this file modifies the info and hence its no longer available"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 15",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1f181072-7292-4da6-9d49-3edcd1a86b92",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en;q=0.4 , fr;q=0.2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 16",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37d70ab4-8fee-4b33-94a3-2e089b8d952e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, *;q=0.8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 17",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3d8cb758-768a-46af-9220-33a48816e168",
+								"exec": [
+									"pm.globals.get(\"variable_key\");",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 18",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a33240cc-e0b5-4b67-85ec-b7b6627d96ff",
+								"exec": [
+									"pm.test(\"Status code is 304 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(304);",
+									"});",
+									"//For 304 change date appropriately"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, *;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": "Wed, 11 Nov 2020 14:29:16 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 19",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "254973eb-1f50-4c34-968d-455fd83a26bc",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, somethign",
+								"type": "text"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": " Thu, 01 Oct 2020 12:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ca8040ae-99e2-4cc9-bc9f-dbd73a30db76",
+								"exec": [
+									"pm.test(\"Status code is 412 Can have 200 if file unmodified after date in header\", function () {",
+									"    pm.response.to.have.status(412);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, *;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "If-Unmodified-Since",
+								"value": " Mon, 05 Oct 2020 12:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 21",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22d339f8-6fcf-4d51-bafe-41700ff7f692",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 22",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1fa14c4-201d-4819-9e25-53d8f832a611",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 23",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d7df3d41-ec50-438d-bb40-b65a8235764f",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " localhost:1234"
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-US,en;q=0.5"
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " gzip, deflate"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"type": "text",
+								"value": " Basic nB3"
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"type": "text",
+								"value": " 1"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 24",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "33172670-589c-435a-a38b-d2912b29c537",
+								"exec": [
+									"pm.test(\"Status code is 407\", function () {",
+									"    pm.response.to.have.status(407);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 25",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ef9d4b19-f359-4743-826b-769fd1785db5",
+								"exec": [
+									"pm.test(\"Status code is 301\", function () {",
+									"    pm.response.to.have.status(301);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/prindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"prindex.html"
+							]
+						},
+						"description": "If you disable follow redirect in setting you get 301\nOtherwise 200(Disabled for now)\n"
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 26",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7151e1ef-191a-46c0-be05-54ad02354bae",
+								"exec": [
+									"pm.test(\"Status code is 302\", function () {",
+									"    pm.response.to.have.status(302);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " localhost:1234"
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-US,en;q=0.5"
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " gzip, deflate"
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"type": "text",
+								"value": " 1"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/trindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"trindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 27",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1bcd9078-d2c8-40b1-afcd-c81f02179024",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-20, 23-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 28",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e697222-4aae-474f-83dd-f61958dc560d",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=-13",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 29",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd58be72-8a60-41d8-9538-441a8cb28cbb",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-10, 7-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 30",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7c9be46-31c9-4e58-aebe-6c37d70c858b",
+								"exec": [
+									"pm.test(\"Status code is 416\", function () {",
+									"    pm.response.to.have.status(416);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-10, 25-21",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 31",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83e6fd55-d81f-4892-b495-2cab50dd0a2a",
+								"exec": [
+									"pm.test(\"Status code is 206 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=7-25,43-",
+								"type": "text"
+							},
+							{
+								"key": "If-Range",
+								"value": "Wed, 11 Nov 2020 19:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 32",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2d81a9dd-7095-457c-8916-eb37fd736162",
+								"exec": [
+									"pm.test(\"Status code is 206 Status code is 206 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=7-25,43-",
+								"type": "text"
+							},
+							{
+								"key": "If-Range",
+								"value": "Wed, 11 Nov 2020 19:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 33",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b0a92903-4dad-4583-9112-e921d5124849",
+								"exec": [
+									"pm.test(\"Status code is 416\", function () {",
+									"    pm.response.to.have.status(416);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"type": "text",
+								"value": " localhost:1234"
+							},
+							{
+								"key": "User-Agent",
+								"type": "text",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+							},
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": " en-US,en;q=0.5"
+							},
+							{
+								"key": "Accept-Encoding",
+								"type": "text",
+								"value": " gzip, deflate"
+							},
+							{
+								"key": "Connection",
+								"type": "text",
+								"value": " keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"type": "text",
+								"value": " 1"
+							},
+							{
+								"key": "Range",
+								"type": "text",
+								"value": "bytes=14-10, 1000-"
+							},
+							{
+								"key": "If-Range",
+								"type": "text",
+								"value": "Wed, 11 Oct 2020 18:35:14 GMT"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 34",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5246d1cd-2e40-4281-92ea-98b692c8aba5",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=7-20,3-9,12-16",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 35",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "30d42f98-1200-42d1-a7fe-806ef4e8d6d5",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=0-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 36",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eac9c1a2-5160-4a77-b51a-9e27b64a7cfa",
+								"exec": [
+									"pm.test(\"Status code is 304 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(304);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": "Wed, 11 Nov 2020 18:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEAD 37",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad41d548-22e9-4965-b503-6541f0d46393",
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {",
+									"    pm.response.to.have.status(412);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "If-Unmodified-Since",
+								"value": "Wed, 30 Sep 2020 18:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GET Queries",
+			"item": [
+				{
+					"name": "GET 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4cc3a351-5627-45d9-bc70-8dcc7a907279",
+								"exec": [
+									"//var responseJSON;",
+									"",
+									"//try { ",
+									"//    responseJSON = JSON.parse(responseBody); ",
+									" //   tests['response is valid JSON'] = true;",
+									"//}",
+									"//catch (e) { ",
+									"  //  responseJSON = {}; ",
+									"    //tests['response is valid JSON'] = false;",
+									"//}",
+									"",
+									"//tests['response json contains headers'] = _.has(responseJSON, 'headers');",
+									"//tests['response json contains args'] = _.has(responseJSON, 'args');",
+									"//tests['response json contains url'] = _.has(responseJSON, 'url');",
+									"",
+									"//tests['args key contains argument passed as url parameter'] = ('test' in responseJSON.args);",
+									"//tests['args passed via request url params has value \"123\"'] = (_.get(responseJSON, 'args.test') === \"123\");",
+									"",
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.5"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1234/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								""
+							]
+						},
+						"description": "The HTTP `GET` request method is meant to retrieve data from a server. The data\nis identified by a unique URI (Uniform Resource Identifier). \n\nA `GET` request can pass parameters to the server using \"Query String \nParameters\". For example, in the following request,\n\n> http://example.com/hi/there?hand=wave\n\nThe parameter \"hand\" has the value \"wave\".\n\nThis endpoint echoes the HTTP headers, request parameters and the complete\nURI requested."
+					},
+					"response": []
+				},
+				{
+					"name": "GET 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5b08c366-8b18-404f-92d1-af9869028776",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": "1"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1234/index.html.gz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html.gz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b7131ee5-dff0-4448-bfe5-e95c640d0c25",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " : c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7910fbd5-3792-4347-805e-2e8f8c544a1d",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Basic nB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae40e2aa-2720-4089-abb2-4449b12b854f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3718b8cf-33aa-40f3-8263-a3d7da953978",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "43f8eac3-63ba-43bb-9787-aeadf6836583",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:1234/indexs.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"indexs.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "efbedfbc-727e-40dd-bb21-abf211991ae1",
+								"exec": [
+									"pm.test(\"Status code is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " deflate, *;q=0",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "98025776-96d1-41b9-b63a-fea6bff64bfa",
+								"exec": [
+									"pm.test(\"Status code is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "image/webp,*/*;q=0.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " deflate, *;q=1",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "298c9ded-848d-4b63-b56d-ff38c12617d9",
+								"exec": [
+									"pm.test(\"Status code is 406\", function () {",
+									"    pm.response.to.have.status(406);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "image/webp,*/*;q=0.2",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " deflate, *;q=1",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " *;q=0.0",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 11",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9df8c7ee-76be-4efc-ac2d-da0515933bc5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en;q=0.5 , fr;q=1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 12",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a59e271-53c4-4f25-9ece-d7b5171c0bc0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 13",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3663357e-cad8-4683-8684-a7174c922607",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "*",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 14",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4b272b1-007e-446d-bc83-d529528d8ad9",
+								"exec": [
+									"pm.test(\"Status code is 200 can also give 406 after multiple runs\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"//Gives 406 because a query in this file modifies the info and hence its no longer available"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "fr",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 15",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "212cdb71-3f5e-4fda-b4dd-a180ce1bec45",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en;q=0.4 , fr;q=0.2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 16",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b36599f2-3883-4ec2-92e8-d2de588ceabf",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, *;q=0.8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 17",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3ec9eda9-a04e-44bf-bcbb-5579f32430a2",
+								"exec": [
+									"pm.globals.get(\"variable_key\");",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 18",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32e80a75-24fe-41f9-ae08-a83ce329207b",
+								"exec": [
+									"pm.test(\"Status code is 304 Can have 200 if file modified after date in header\" , function () {",
+									"    pm.response.to.have.status(304);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, *;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": "Wed, 11 Nov 2020 14:29:16 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 19",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3687d98d-3a21-43d6-8efb-a934400f9009",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, somethign",
+								"type": "text"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": " Thu, 01 Oct 2020 12:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "854d4404-a9c3-4ebe-8348-c15e0b64b629",
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {",
+									"    pm.response.to.have.status(412);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/* , text/xml, */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Charset",
+								"value": " us-ascii, *;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "If-Unmodified-Since",
+								"value": "Mon, 05 Oct 2020 12:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 21",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aec63123-ac20-41e1-895d-83f5a5748ea6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 22",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bd1e6f8f-531d-4321-bba1-34756962c6fd",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 23",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40abde5f-118b-4766-b954-79f072fae897",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " Basic nB3",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 24",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ee90a8a-7b37-4127-bbcf-5a90b05d557a",
+								"exec": [
+									"pm.test(\"Status code is 407\", function () {",
+									"    pm.response.to.have.status(407);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 25",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7ad55c64-04d8-4d36-b9c8-572edaa0f5ca",
+								"exec": [
+									"pm.test(\"Status code is 301\", function () {",
+									"    pm.response.to.have.status(301);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/prindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"prindex.html"
+							]
+						},
+						"description": "If you disable follow redirect in setting you get 301\nOtherwise 200(Disabled for now)\n"
+					},
+					"response": []
+				},
+				{
+					"name": "GET 26",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a925a087-9c8e-4bcf-b285-04cb0322ba98",
+								"exec": [
+									"pm.test(\"Status code is 302\", function () {",
+									"    pm.response.to.have.status(302);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/trindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"trindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 27",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7613efaf-b424-4b26-8b47-491fa7c1b9bb",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-20, 23-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 28",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7520cf2-117f-41ac-a819-b008d9e48a5d",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " close",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=-13",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 29",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b9163a0a-d042-45c7-9a51-9e574f90a0c7",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-10, 7-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 30",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a13a28bc-45a5-41db-b3f4-b967958656b9",
+								"exec": [
+									"pm.test(\"Status code is 416\", function () {",
+									"    pm.response.to.have.status(416);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-10, 25-21",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 31",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f2056082-c06c-4a11-9789-d67f8623a915",
+								"exec": [
+									"pm.test(\"Status code is 206 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-25,43-",
+								"type": "text"
+							},
+							{
+								"key": "If-Range",
+								"value": "Wed, 11 Nov 2020 19:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 32",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "01f26ffa-c8e3-4fa7-81fc-bdf6f4c9fa2e",
+								"exec": [
+									"pm.test(\"Status code is 206 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-25,43-",
+								"type": "text"
+							},
+							{
+								"key": "If-Range",
+								"value": "Wed, 11 Nov 2020 19:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 33",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22a0fb25-6d32-4c4c-852a-2d9fade29681",
+								"exec": [
+									"pm.test(\"Status code is 416\", function () {",
+									"    pm.response.to.have.status(416);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-10, 1000-",
+								"type": "text"
+							},
+							{
+								"key": "If-Range",
+								"value": "Wed, 11 Oct 2020 18:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 34",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc7e4b68-7a46-4f01-91c5-8733e6246871",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=15-20,-14,23-33,12-16",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 35",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "766e4dee-218a-4528-b9dd-acf7753dfd02",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=0-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 36",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "853a5fe0-3746-438c-b723-2cf1310c2893",
+								"exec": [
+									"pm.test(\"Status code is 304 Can have 200 if file modified after date in header\", function () {",
+									"    pm.response.to.have.status(304);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "If-Modified-Since",
+								"value": "Wed, 11 Nov 2020 18:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 37",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "32ae0e8e-1532-4aee-a42f-ad3210b2eafe",
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {",
+									"    pm.response.to.have.status(412);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": " Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": " text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": " keep-alive",
+								"type": "text"
+							},
+							{
+								"key": "Upgrade-Insecure-Requests",
+								"value": " 1",
+								"type": "text"
+							},
+							{
+								"key": "If-Unmodified-Since",
+								"value": "Wed, 30 Sep 2020 18:35:14 GMT",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 38",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7465ebb4-333f-4ef0-a044-5f82e7e148d6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/1.png",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"1.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 39",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bc56b414-83c8-4f80-ac5f-5832ef0cfb96",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip,deflate",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 40",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4be06023-ccbf-48ea-97e1-6359bbaa5d77",
+								"exec": [
+									"pm.test(\"Status code is 206\", function () {",
+									"    pm.response.to.have.status(206);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip,deflate",
+								"type": "text"
+							},
+							{
+								"key": "Range",
+								"value": "bytes=14-25,43-",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "POST Queries",
+			"item": [
+				{
+					"name": "POST 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "555d0c51-8a5a-4630-828a-bfdcb762c8fe",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": " 15",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Hi this is is some people who i dont like",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/utim.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"utim.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4fcf0b3b-262c-4783-a2c8-692bdbf88330",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": "gzip",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": "en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Is this simran?",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/indo.txt",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"indo.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b1484a1-4d57-4d71-a9c0-962cc78b7dfa",
+								"exec": [
+									"pm.test(\"Status code is 303\", function () {",
+									"    pm.response.to.have.status(303);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": "14",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Name=Shruti&Age=17",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/prindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"prindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8ed93e4-fa9c-4845-91c6-8b8c4c414266",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": "bytes=0-14",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Name=Simran&Age=20",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "03026553-5530-451c-882c-b40d11e0c231",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Hi this is testing for post",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c3d77770-ebe2-4be1-9638-3424685703af",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": " */*",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": " en-US,en;q=0.5",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": " gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " SAPISIDHASH 8d8eaf622adf64a4e8a953a8645c725a0e123a0d",
+								"type": "text"
+							},
+							{
+								"key": "X-Goog-AuthUser",
+								"value": " 0",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " application/binary",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "okay this is test",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63874069-8a99-4668-8314-788bb84f00c4",
+								"exec": [
+									"pm.test(\"Status code is 407\", function () {",
+									"    pm.response.to.have.status(407);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Authorisation",
+								"value": "1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "14",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": "15",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "this is type proxy",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f9a9a70-21b1-47e1-a9a9-552703aa2b15",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "14",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": "15",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>Hi nice to meet </html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/proxyindex.html/",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f6849f9-6b8e-45d0-845b-236eabba19f1",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "localhost:1234",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "This is fun",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba41c39c-a8ca-4d33-9bcf-b07efc641c80",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": " HTTP Server",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": " 32",
+								"type": "text"
+							},
+							{
+								"key": "Authorisation",
+								"value": ":432134",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "home=Cosby&favorite+flavor=flies\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.html/",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 11",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2234cb1c-8b5b-41e2-895f-7484e046b896",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": "bytes 6-17/40",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "hi there ",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/new",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 12",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2bf691a1-063b-43af-bc4f-bee6ae066861",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " french",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": " bytes 6-17/40",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "main page",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PUT Queries",
+			"item": [
+				{
+					"name": "PUT 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3f47511a-b123-423f-833a-5d0851f8843f",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<h1>heyo</h1>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/utim.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"utim.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 2 ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "946de530-e01d-4685-8973-c1725c8f5e9e",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) || pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<h1>heyo</h1>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b696b9c-eaed-45d6-9c82-8ad52699143c",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " french",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>You areyou </html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/uti.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"uti.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a5f207a-7d19-4735-8594-a82f0165852e",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>You are who you want to be</html>\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/ugress.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"ugress.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "556d1ecd-0e0b-4992-bcb8-3cadd63d7e28",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>You are who you want to be</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/ugress.en.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"ugress.en.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79f1f610-69f0-4e43-aa14-14307f13fa16",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							},
+							{
+								"key": "Proxy-Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>Proxy Files</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/proxyindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bdb7acaa-7118-4e64-b1f0-76e86e971345",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>hey there</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/proxyuti.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"proxyuti.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ef91617d-d5d1-4257-ba87-8dc98c2f30ff",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>You are under supervision <html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/protectindex.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"protectindex.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "87dd11ba-0eea-40d5-ad20-774836aef049",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>okay then</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/uti.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"uti.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e88435c6-6a77-4aa9-abd9-68cc2ab81d9f",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": " Basic c2ltOnB3",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": "bytes 6-10/61",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html> You only live once </html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 11",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46166191-8d85-4767-b394-51cabc1473a4",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": "English",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": "identity",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>This is a basic html file </html>\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 12",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e02dd64e-398e-4e3d-a2b9-e4edb891f6a2",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>This is supposed to be in french </html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 13",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "91e64b1b-27c7-4093-9fee-75f0cbd1f898",
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": " bytes 14-25",
+								"type": "text"
+							},
+							{
+								"key": "Last-Modified",
+								"value": "  Sun, 19 Oct 2020 12:37:57 GMT",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/plain",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": " session=617395589",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": " 268",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "Etiam mi lacus, cursus vitae felis et, blandit pellentesque neque. Vestibulum eget nisi a tortor commodo dignissim.\nQuisque ipsum ligula, faucibus a felis a, commodo elementum nisl. Mauris vulputate sapien et tincidunt viverra. Donec vitae velit nec metus Helloooooo.\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 14",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfe3e9ba-8b8c-431f-9a6d-38f62647881b",
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": " bytes 14-25",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Last-Modified",
+								"value": " Sun, 20 Oct 2020 12:37:57 GMT",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>hey everybody   \nWelcome to our server\n<img src=\"1.png\" alt=\"Italian Trulli\"> </html>\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 15",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2c053fbf-8342-4124-b693-5ebc40ec16aa",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/xml ; charset=en-ascii",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>This was supposed to be in french</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 16",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b977b22-a8ef-4a57-a61f-f82fccf80fe3",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/xml ; charset=en-ascii",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " deflate",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>this is not fun</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 17",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2e59b1a0-44fb-4e9c-ba53-b5889938f27d",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>not cool</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 18",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c19c74c0-2fcd-425b-894d-b60b63cc3024",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " fr",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html> Yeah yu</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 19",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd2851cf-fa6f-4c4f-9079-beb2ea4bfb27",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": "bytes 6-17/40",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<html>this is it</html>",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb7560ce-9aa3-4039-aea1-8e95726ff84a",
+								"exec": [
+									"pm.test(\"Status code is 204/201\", function () {",
+									"    pm.response.to.have.status(204) ||",
+									"    pm.response.to.have.status(201)",
+									"    ;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							},
+							{
+								"key": "Content-Range",
+								"value": "bytes 6-17/40",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/xml ; charset=en-ascii",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "ALRIGHT ",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:1234/index.fr.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"index.fr.html"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DELETE",
+			"item": [
+				{
+					"name": "DELETE 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "53d265ee-4368-4fa8-a3a9-f2ecc0bc039e",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/ugress.en.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"ugress.en.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a57d45a-4fa6-45c1-be06-ad35a70de50c",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Host",
+								"value": " localhost:1234",
+								"type": "text"
+							},
+							{
+								"key": "Content-Language",
+								"value": " en",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": " text/html",
+								"type": "text"
+							},
+							{
+								"key": "Content-Encoding",
+								"value": " gzip",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:1234/ugress.html",
+							"host": [
+								"localhost"
+							],
+							"port": "1234",
+							"path": [
+								"ugress.html"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
