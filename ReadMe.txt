@@ -23,7 +23,7 @@ Go to Runner and run the collection.
 
 The MT testing can be tested by using the folder Testing
 Go to the folder
-and run python MultiTestingsuite.py(No need to start/stop the server)
+and run python MTtestingsuite.py(No need to start/stop the server)
 
 Files in the project
 
